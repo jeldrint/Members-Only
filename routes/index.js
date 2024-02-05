@@ -6,7 +6,7 @@ const User = require('../models/user')
 
 //FOR LOGIN
 router.get('/', (req,res) => {
-    console.log(res.locals);
+    //console.log(res.locals);
     res.render('index', {user: res.locals.currentUser})
 })
 

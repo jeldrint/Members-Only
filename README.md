@@ -5,6 +5,9 @@ Feb 2
 Feb 4
 * Log-in / reading data / passport JS from the database
 
-* Next is passport authenticator for log-in
 
+Feb 5
+* Next is passport authenticator for log-in
 * implementing bcryptjs
+
+* sanitization and validation of fields
