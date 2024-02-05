@@ -5,4 +5,4 @@ Feb 2
 Feb 4
 * Log-in / reading data / passport JS from the database
 
-* Next is passport authenticator
+* Next is passport authenticator for log-in
