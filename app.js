@@ -5,6 +5,7 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs')
 
 const indexRoute = require('./routes/index');
 const User = require('./models/user');
@@ -30,7 +31,9 @@ passport.use(
             if(!user){
                 return done(null, false, {message: "Incorrect Username. Try again"});
             }
-            if(user.password !== password){
+            const match = await bcrypt.compare(password, user.password);
+            if(!match){
+                //passwords do not match!
                 return done(null, false, {message: "Incorrect Password"});
             }
             return done(null, user);
@@ -65,6 +68,12 @@ app.post('/login',
         failureRedirect: '/',
     })
 )
+
+//saving the current user data
+app.use((req,res,next) => {
+    res.locals.currentUser = req.user;
+    next();
+})
 
 app.use('/', indexRoute)
 
