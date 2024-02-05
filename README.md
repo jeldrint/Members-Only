@@ -3,3 +3,6 @@ Feb 2
 * Can write data in the database
 
 Feb 4
+* Log-in / reading data / passport JS from the database
+
+* Next is passport authenticator

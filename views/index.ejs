@@ -7,11 +7,11 @@
 </head>
 <body>
     <% if (user) {%>
-        <h1>WELCOME BACK <%= user.username %></h1>
-        <a href="/log-out">LOG OUT</a>
+        <h1>WELCOME BACK <%= user.first_name %> <%= user.family_name %></h1>
+        <a href="/logout">LOG OUT</a>
     <% } else { %>
         <h1>Please log in</h1>
-        <form action="/log-in" method="POST">
+        <form action="/login" method="POST">
             <label for="username">Username </label>
             <input name="username" placeholder="username" type="text" />
             <label for="password">Password</label>

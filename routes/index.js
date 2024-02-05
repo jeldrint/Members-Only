@@ -3,8 +3,18 @@ const router = express.Router();
 
 const User = require('../models/user')
 
-router.get('/', (req,res) => res.render('index', {user: req.user}));
+//FOR LOGIN
+router.get('/', (req,res) => {
+    //console.log(req.user)
+    res.render('index', {user: req.user})
+})
 
+router.get('/logout', (req,res,next) => {
+    req.logOut((err) => {
+        return next(err)
+    })
+    res.redirect('/');
+})
 
 //FOR SIGN UP
 router.get('/sign-up', (req,res) => res.render('sign-up-form'))
