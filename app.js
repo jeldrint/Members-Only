@@ -58,6 +58,7 @@ app.use(session({secret: process.env.SECRET, resave: false, saveUninitialized: t
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 app.post('/login',
     passport.authenticate('local',{

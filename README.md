@@ -11,3 +11,4 @@ Feb 5
 * implementing bcryptjs
 
 * sanitization and validation of fields
+  - debugged the error, still working on it (Feb 9)
