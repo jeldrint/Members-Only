@@ -12,3 +12,8 @@ Feb 5
 
 * sanitization and validation of fields
   - debugged the error, still working on it (Feb 9)
+  - hash problem with password solved (feb 12)
+
+Mar 4
+ - confirm password
+ 
