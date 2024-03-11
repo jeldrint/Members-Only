@@ -15,5 +15,5 @@ Feb 5
   - hash problem with password solved (feb 12)
 
 Mar 4
- - confirm password
+ - confirm password (finish number 3)
  

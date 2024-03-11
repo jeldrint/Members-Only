@@ -38,6 +38,9 @@ router.post('/sign-up', [
   body("password")
     .trim().isLength({min: 8}).withMessage("Password must be 8 characters long")
     .escape(),
+  body('confirm-password')
+    .custom((value, { req }) => value === req.body.password )
+    .withMessage('The password does not match.'),
 
   asyncHandler (async (req,res, next) => {
     const errors = validationResult(req);
@@ -47,17 +50,7 @@ router.post('/sign-up', [
       family_name: req.body.lastname,
       user_name: req.body.username,
     })
-    
-    bcrypt.hash(req.body.password, 10, async (err, hashedPW) => {
-      console.log(req.body.password, hashedPW)
-      if(err){
-        return err
-      }else{
-        user.password = hashedPW;
-        await user.save();
-      }
-    })
-    
+        
     console.log(errors.array())
     if(!errors.isEmpty()){         
       res.render('sign-up-form', {
@@ -65,7 +58,15 @@ router.post('/sign-up', [
       })
       return;
     }else{
-      await user.save();
+      bcrypt.hash(req.body.password, 10, async (err, hashedPW) => {
+        console.log(req.body.password, hashedPW)
+        if(err){
+          return err
+        }else{
+          user.password = hashedPW;
+          await user.save();
+        }
+      })
       res.redirect('/');
     }
   })
