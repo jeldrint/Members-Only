@@ -7,9 +7,16 @@
 </head>
 <body>
     <% if (user) {%>
-        <h1>WELCOME BACK <%= user.first_name %> <%= user.family_name %></h1>
+        <h1>WELCOME BACK, <%= user.first_name %> <%= user.family_name %></h1>
+        <h3>Type of Membership: <%= user.membership_status %></h3>
         <a href="/logout">LOG OUT</a>
-    <% } else { %>
+        <br><br>
+        <form action="/elite-member" method="POST">
+          <label for="username">Already part of the Club? Enter the Passcode here: </label>
+          <input name="username" placeholder="passcode..." type="text" />
+          <button>Log in</button>
+      </form>
+  <% } else { %>
         <h1>Please log in</h1>
         <form action="/login" method="POST">
             <label for="username">Username </label>

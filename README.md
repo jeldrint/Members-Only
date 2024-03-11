@@ -15,5 +15,11 @@ Feb 5
   - hash problem with password solved (feb 12)
 
 Mar 4
- - confirm password (finish number 3)
- 
+ - confirm password (finish number 3) -> done (March 11)
+
+Mar 11
+  - solving 4/10
+  - prioritize natin yung functionality, oks lang kahit sabog sabog tignan at first
+
+  - at sign-up, everyone has a standard membership
+  - so if nag lagay ng passcode, automatically, elite na sila tama ba?
