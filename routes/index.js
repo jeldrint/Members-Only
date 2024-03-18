@@ -20,9 +20,9 @@ router.get('/logout', (req,res,next) => {
 })
 
 //FOR SIGN UP
-router.get('/sign-up', asyncHandler(async (req,res) => {
+router.get('/sign-up', (req,res) => {
   res.render('sign-up-form');
-}))
+})
 
 router.post('/sign-up', [
   body("firstname")
@@ -71,6 +71,16 @@ router.post('/sign-up', [
     }
   })
 ])
+
+
+// FOR ELITE MEMBERS
+/* router.post('/elite-member',(req,res,next) => {
+  
+}) */
+
+router.get('/elite-member', (req,res) =>{
+  res.render('elite')
+})
 
 
 

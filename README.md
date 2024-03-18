@@ -19,7 +19,13 @@ Mar 4
 
 Mar 11
   - solving 4/10
-  - prioritize natin yung functionality, oks lang kahit sabog sabog tignan at first
+  - ☑️prioritize natin yung functionality, oks lang kahit sabog sabog tignan at first
 
-  - at sign-up, everyone has a standard membership
-  - so if nag lagay ng passcode, automatically, elite na sila tama ba?
+  - ☑️at sign-up, everyone has a standard membership
+  - ☑️so if nag lagay ng passcode, automatically, elite na sila tama ba?
+
+Mar 12
+  - Are we gonna use Passport JS for verifying the passcode? Or not necessary, just use the express validator? (somehow confused abt these two)
+
+Mar 18
+  - 
