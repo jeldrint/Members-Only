@@ -11,21 +11,28 @@ Feb 5
 * implementing bcryptjs
 
 * sanitization and validation of fields
-  - debugged the error, still working on it (Feb 9)
-  - hash problem with password solved (feb 12)
+    - debugged the error, still working on it (Feb 9)
+    - hash problem with password solved (feb 12)
 
 Mar 4
- - confirm password (finish number 3) -> done (March 11)
+    - confirm password (finish number 3) -> done (March 11)
 
 Mar 11
-  - solving 4/10
-  - ☑️prioritize natin yung functionality, oks lang kahit sabog sabog tignan at first
+    - solving 4/10
+    - ☑️prioritize natin yung functionality, oks lang kahit sabog sabog tignan at first
 
-  - ☑️at sign-up, everyone has a standard membership
-  - ☑️so if nag lagay ng passcode, automatically, elite na sila tama ba?
+    - ☑️at sign-up, everyone has a standard membership
+    - ☑️so if nag lagay ng passcode, automatically, elite na sila tama ba?
 
 Mar 12
-  - Are we gonna use Passport JS for verifying the passcode? Or not necessary, just use the express validator? (somehow confused abt these two)
+    - Are we gonna use Passport JS for verifying the passcode? Or not necessary, just use the express validator? (somehow confused abt these two)
 
 Mar 18
-  - 
+-   
+    - attempting to do the 4/10
+    - working on 4/10, now elite page appearing but using method=GET
+
+Mar 21
+-   
+    - using method=POST now for the passcode
+    - You can now enter as elite member 'initial', still needs error catcher

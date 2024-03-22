@@ -11,7 +11,7 @@
         <h3>Type of Membership: <%= user.membership_status %></h3>
         <a href="/logout">LOG OUT</a>
         <br><br>
-        <form action="/elite-member" method="GET">
+        <form action="/elite-member" method="POST">
           <label for="passcode">Already part of the Club? Enter the Passcode here: </label>
           <input name="passcode" placeholder="passcode..." type="password" />
           <button>Enter</button>

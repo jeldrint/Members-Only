@@ -75,4 +75,4 @@ app.use((req,res,next) => {
 
 app.use('/', indexRoute)
 
-app.listen(3001, () => console.log('app listening to port 3001'));
+app.listen(3000, () => console.log('app listening to port 3000'));
