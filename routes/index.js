@@ -93,12 +93,14 @@ router.post('/elite-member',[
         console.log('elite POST')
         console.log(err.array());
         if (!err.isEmpty()){
-            res.render('', {
+            res.render('elite', {
                 err: err.array(),
             })
             return;
         }else{
-            res.render('elite')
+            res.render('elite', {
+                err: 'No error',
+            })
         }
     }
 

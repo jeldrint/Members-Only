@@ -36,3 +36,7 @@ Mar 21
 -   
     - using method=POST now for the passcode
     - You can now enter as elite member 'initial', still needs error catcher
+
+Mar 29
+*   
+    - we need to deflect the error message from inputting the passcode for Elite
