@@ -5,12 +5,16 @@ const asyncHandler = require('express-async-handler');
 const {body, validationResult} = require('express-validator')
 const User = require('../models/user')
 
+//ENV FILE
+require('dotenv').config()
 
-//FOR LOGIN
+
+
 router.get('/', (req,res) => {
     res.render('index', {user: res.locals.currentUser})
 })
 
+//FOR LOGIN
 router.get('/login', (req,res) => {
     res.render('index', {user: res.locals.currentUser})
 })
@@ -78,22 +82,19 @@ router.post('/sign-up', [
     })
 ])
 
-
 // FOR ELITE MEMBERS
 router.post('/elite-member',[
-    body('passcode').custom(value => value === 'sample')
+    body('passcode').custom(value => value === process.env.PASSCODE)
         .withMessage('passcode is wrong. try again'),
 
     (req,res) => {
         const err = validationResult(req);
 
         console.log('elite POST')
-        console.log(err.array());
         if (!err.isEmpty()){
             res.render('elite', {
                 err: err.array(),
             })
-            return;
         }else{
             res.render('elite', {
                 err: 'No error',
