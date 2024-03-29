@@ -62,7 +62,7 @@ app.use(express.json());
 
 app.post('/login',
     passport.authenticate('local',{
-        successRedirect: '/',
+        successRedirect: '/login',
         failureRedirect: '/',
     })
 )

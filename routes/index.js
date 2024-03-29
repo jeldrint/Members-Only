@@ -6,9 +6,12 @@ const {body, validationResult} = require('express-validator')
 const User = require('../models/user')
 
 
-    //FOR LOGIN
+//FOR LOGIN
 router.get('/', (req,res) => {
-    //console.log(res.locals);
+    res.render('index', {user: res.locals.currentUser})
+})
+
+router.get('/login', (req,res) => {
     res.render('index', {user: res.locals.currentUser})
 })
 
@@ -77,12 +80,6 @@ router.post('/sign-up', [
 
 
 // FOR ELITE MEMBERS
-router.get('/elite-member', (req,res) =>{
-    console.log('elite GET')
-    res.render('elite')
-})
-
-
 router.post('/elite-member',[
     body('passcode').custom(value => value === 'sample')
         .withMessage('passcode is wrong. try again'),
