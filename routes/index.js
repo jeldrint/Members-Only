@@ -5,6 +5,7 @@ const asyncHandler = require('express-async-handler');
 const {body, validationResult} = require('express-validator')
 const User = require('../models/user')
 
+
 //ENV FILE
 require('dotenv').config()
 
@@ -87,10 +88,8 @@ router.post('/elite-member',[
 
     asyncHandler(async(req, res, next) => {
         const err = validationResult(req);        
-        const user = User.findById(res.locals.currentUser._id);
+        const user = await User.updateOne({_id: res.locals.currentUser._id}, {$set:{membership_status: 'Elite'}});
         
-        console.log(res.locals.currentUser._id)
-
         console.log('elite POST')
         if (!err.isEmpty()){
             res.render('elite', {
@@ -101,7 +100,7 @@ router.post('/elite-member',[
                 err: 'No error',
                 user: user
             })
-        }
+        } 
     })
 ])
 
