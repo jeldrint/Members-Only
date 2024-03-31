@@ -11,11 +11,15 @@
         <h3>Type of Membership: <%= user.membership_status %></h3>
         <a href="/logout">LOG OUT</a>
         <br><br>
-        <form action="/elite-member" method="POST">
-          <label for="passcode">Already part of the Club? Enter the Passcode here: </label>
-          <input name="passcode" placeholder="passcode..." type="password" />
-          <button>Enter</button>
-      </form>
+        <% if(user.membership_status === 'Standard') { %>
+            <form action="/elite-member" method="POST">
+            <label for="passcode">Already part of the Club? Enter the Passcode here: </label>
+            <input name="passcode" placeholder="passcode..." type="password" />
+            <button>Enter</button>
+            </form>
+        <%}else { %>
+            <!-- HERE IS THE PAGE OF THE ELITE MEMBERS-->
+        <%} %>
   <% } else { %>
         <h1>Please log in</h1>
         <form action="/login" method="POST">

@@ -88,7 +88,6 @@ router.post('/elite-member',[
 
     asyncHandler(async(req, res, next) => {
         const err = validationResult(req);        
-        const user = await User.updateOne({_id: res.locals.currentUser._id}, {$set:{membership_status: 'Elite'}});
         
         console.log('elite POST')
         if (!err.isEmpty()){
@@ -96,6 +95,7 @@ router.post('/elite-member',[
                 err: err.array(),
             })
         }else{
+            const user = await User.updateOne({_id: res.locals.currentUser._id}, {$set:{membership_status: 'Elite'}});
             res.render('elite', {
                 err: 'No error',
                 user: user

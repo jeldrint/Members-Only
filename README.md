@@ -44,9 +44,14 @@ Mar 29
     - used env file for the elite member passcode ☑️
 
 Mar 30 - Mar 31
-* Update membership status
+* Update membership status ☑️
     -   retrieving data from MongoDB
         - bug #1: i forgot to put .exec() during findById
         - bug #2: _id produces new Object, id produces the raw id value
         - bug #3: i forgot the 'await' keyword during the findById. **smh**
     - i used mongoDB's updateOne, doesnt need to .save() the file. it automatically changes.
+
+Mar 31
+* Now do the messages
+    - standard membership read only
+    - elite membership read and write
