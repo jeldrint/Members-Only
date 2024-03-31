@@ -39,4 +39,10 @@ Mar 21
 
 Mar 29
 *   
-    - we need to deflect the error message from inputting the passcode for Elite
+    - we need to deflect the error message from inputting the passcode for Elite ☑️
+    - fixing the route names ☑️
+    - used env file for the elite member passcode ☑️
+
+Mar 30
+*   
+    - update membership status

@@ -8,8 +8,6 @@ const User = require('../models/user')
 //ENV FILE
 require('dotenv').config()
 
-
-
 router.get('/', (req,res) => {
     res.render('index', {user: res.locals.currentUser})
 })
@@ -87,8 +85,11 @@ router.post('/elite-member',[
     body('passcode').custom(value => value === process.env.PASSCODE)
         .withMessage('passcode is wrong. try again'),
 
-    (req,res) => {
-        const err = validationResult(req);
+    asyncHandler(async(req, res, next) => {
+        const err = validationResult(req);        
+        const user = User.findById(res.locals.currentUser._id);
+        
+        console.log(res.locals.currentUser._id)
 
         console.log('elite POST')
         if (!err.isEmpty()){
@@ -98,10 +99,10 @@ router.post('/elite-member',[
         }else{
             res.render('elite', {
                 err: 'No error',
+                user: user
             })
         }
-    }
-
+    })
 ])
 
 

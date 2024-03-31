@@ -8,6 +8,7 @@
 <body>
     <% if(err === "No error") {%>
         <h1>Welcome to the Club!</h1>
+        <h2><%=user.first_name%></h2>
     <% } else {%>
         <p> Incorrect Passcode!</p>
         <br />
