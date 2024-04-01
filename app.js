@@ -9,6 +9,8 @@ const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler');
 
 const indexRoute = require('./routes/index');
+const messageRoute = require('./routes/message')
+
 const User = require('./models/user');
 
 //ENV FILE
@@ -74,5 +76,6 @@ app.use((req,res,next) => {
 })
 
 app.use('/', indexRoute)
+app.use('/', messageRoute)
 
 app.listen(3000, () => console.log('app listening to port 3000'));

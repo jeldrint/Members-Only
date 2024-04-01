@@ -6,7 +6,9 @@ const {body, validationResult} = require('express-validator');
 const User = require('../models/user');
 const Messages = require('../models/messages');
 
-
+router.get('/write-message', (req,res)=>{
+    res.render('message')
+})
 
 
 

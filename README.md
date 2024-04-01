@@ -51,8 +51,11 @@ Mar 30 - Mar 31
         - bug #3: i forgot the 'await' keyword during the findById. **smh**
     - i used mongoDB's updateOne, doesnt need to .save() the file. it automatically changes.
 
-Mar 31 -
+Mar 31 - Apr
 * Now do the messages
     - standard membership can write messages, but cannot view who said who
     - elite membership can write messages, and can see the author and date of the message
-    -Admins can see everything and has the ability to delete messages
+    - Admins can see everything and has the ability to delete messages
+Apr 1
+* 
+    - constructing admin, elite, and standard membership page

@@ -9,7 +9,7 @@
     <% if (user) {%>
         <div style="display: flex; align-items: center; column-gap: 20px;">
             <h1><%= user.first_name %> <%= user.family_name %></h1>
-            <form action="/write-message" method="POST">
+            <form action="/write-message" method="GET">
                 <button style="text-align: center;padding: 10px; cursor: pointer;">WRITE A MESSAGE</button>
             </form>
         </div>
