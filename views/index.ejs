@@ -7,19 +7,28 @@
 </head>
 <body>
     <% if (user) {%>
-        <h1>WELCOME BACK, <%= user.first_name %> <%= user.family_name %></h1>
-        <h3>Type of Membership: <%= user.membership_status %></h3>
-        <a href="/logout">LOG OUT</a>
-        <br><br>
-        <% if(user.membership_status === 'Standard') { %>
-            <form action="/elite-member" method="POST">
-            <label for="passcode">Already part of the Club? Enter the Passcode here: </label>
-            <input name="passcode" placeholder="passcode..." type="password" />
-            <button>Enter</button>
+        <div style="display: flex; align-items: center; column-gap: 20px;">
+            <h1>WELCOME BACK, <%= user.first_name %> <%= user.family_name %></h1>
+            <form action="/write-message" method="POST">
+                <button style="text-align: center;padding: 10px; cursor: pointer;">WRITE A MESSAGE</button>
             </form>
-        <%}else { %>
-            <!-- HERE IS THE PAGE OF THE ELITE MEMBERS-->
-        <%} %>
+        </div>
+
+        <h3 style="margin: 0;">Type of Membership: <%= user.membership_status %></h3>
+
+        <div style="position:fixed; bottom: 30%;">
+            <% if(user.membership_status === 'Standard') { %>
+                <form action="/elite-member" method="POST">
+                    <label for="passcode">Already part of the Club? Enter the Passcode here: </label>
+                    <input name="passcode" placeholder="passcode..." type="password" />
+                    <button>Enter</button>
+                </form>
+            <%}else { %>
+                <!-- HERE IS THE PAGE OF THE ELITE MEMBERS-->
+            <%} %>
+            <br />
+            <a href="/logout" >LOG OUT</a>    
+        </div>
   <% } else { %>
         <h1>Please log in</h1>
         <form action="/login" method="POST">
