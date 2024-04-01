@@ -8,7 +8,7 @@
 <body>
     <% if (user) {%>
         <div style="display: flex; align-items: center; column-gap: 20px;">
-            <h1>WELCOME BACK, <%= user.first_name %> <%= user.family_name %></h1>
+            <h1><%= user.first_name %> <%= user.family_name %></h1>
             <form action="/write-message" method="POST">
                 <button style="text-align: center;padding: 10px; cursor: pointer;">WRITE A MESSAGE</button>
             </form>
@@ -17,15 +17,22 @@
         <h3 style="margin: 0;">Type of Membership: <%= user.membership_status %></h3>
 
         <div style="position:fixed; bottom: 30%;">
-            <% if(user.membership_status === 'Standard') { %>
+            <% if(user.membership_status === 'Administrator') { %>
+                <!-- HERE IS THE PAGE OF THE ADMINISTRATOR-->
+                <h2> Welcome, Admin!</h2>
+
+            <%}else if(user.membership_status === 'Elite')  { %>
+                <!-- HERE IS THE PAGE OF THE ELITE MEMBERS-->
+                <h2> Welcome, Elite Member!</h2>
+
+            <%}else {%>
                 <form action="/elite-member" method="POST">
                     <label for="passcode">Already part of the Club? Enter the Passcode here: </label>
                     <input name="passcode" placeholder="passcode..." type="password" />
                     <button>Enter</button>
-                </form>
-            <%}else { %>
-                <!-- HERE IS THE PAGE OF THE ELITE MEMBERS-->
-            <%} %>
+                </form>            
+            <% } %>
+            
             <br />
             <a href="/logout" >LOG OUT</a>    
         </div>

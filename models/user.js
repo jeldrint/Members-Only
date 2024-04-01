@@ -9,7 +9,7 @@ const UserSchema = new Schema({
     membership_status: {
         type: String,
         required: true,
-        enum: ["Standard", "Elite"],
+        enum: ["Standard", "Elite", "Administrator"],
         default: "Standard"
     }
 })

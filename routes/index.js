@@ -83,9 +83,8 @@ router.post('/sign-up', [
 
 // FOR ELITE MEMBERS
 router.post('/elite-member',[
-    body('passcode').custom(value => value === process.env.PASSCODE)
+    body('passcode').custom(value => value === process.env.PASSCODE || value === process.env.ADMIN)
         .withMessage('passcode is wrong. try again'),
-
     asyncHandler(async(req, res, next) => {
         const err = validationResult(req);        
         
@@ -95,7 +94,14 @@ router.post('/elite-member',[
                 err: err.array(),
             })
         }else{
-            const user = await User.updateOne({_id: res.locals.currentUser._id}, {$set:{membership_status: 'Elite'}});
+            let user = '';
+            if(req.body.passcode === process.env.ADMIN){
+                user = await User.updateOne({_id: res.locals.currentUser._id}, {$set:{membership_status: 'Administrator'}});
+            }
+            if(req.body.passcode === process.env.PASSCODE){
+                user = await User.updateOne({_id: res.locals.currentUser._id}, {$set:{membership_status: 'Elite'}});
+            }
+
             res.render('elite', {
                 err: 'No error',
                 user: user
