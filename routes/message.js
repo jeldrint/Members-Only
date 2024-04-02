@@ -19,7 +19,7 @@ router.post('/members-only/:id/message', asyncHandler (async(req,res)=>{
     })        
     await msg.save();
     
-    res.redirect('/login');
+    res.redirect('/members-only/:id/');
 }))
 
 module.exports = router;
