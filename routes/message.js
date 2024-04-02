@@ -11,6 +11,18 @@ router.get('/write-message', (req,res)=>{
 })
 
 
+router.post('/write-message', asyncHandler (async(req,res)=>{
+    
+        const msg = new Messages({
+            title: req.body.title,
+            timestamp: Date.now(),
+            message: req.body.message,
+            userId: res.locals.currentUser._id
+        })        
+        await msg.save();
+        
+        res.redirect('/login');
+}))
 
 
 

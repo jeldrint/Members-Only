@@ -56,6 +56,7 @@ Mar 31 - Apr
     - standard membership can write messages, but cannot view who said who
     - elite membership can write messages, and can see the author and date of the message
     - Admins can see everything and has the ability to delete messages
-Apr 1
-* 
-    - constructing admin, elite, and standard membership page
+    
+    Apr 1
+    * 
+        - constructing admin, elite, and standard membership page
