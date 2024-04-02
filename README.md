@@ -59,4 +59,9 @@ Mar 31 - Apr
     
     Apr 1
     * 
-        - constructing admin, elite, and standard membership page
+        - initial construction of admin, elite, and standard membership page ☑️
+    
+    Apr 2
+    * 
+        - messages page now functioning, writing in the db ☑️
+        - route fixing☑️

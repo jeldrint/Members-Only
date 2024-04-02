@@ -10,11 +10,15 @@ const User = require('../models/user')
 require('dotenv').config()
 
 router.get('/', (req,res) => {
+    res.redirect('/members-only')
+})
+
+router.get('/members-only', (req,res) => {
     res.render('index', {user: res.locals.currentUser})
 })
 
-//FOR LOGIN
-router.get('/login', (req,res) => {
+//FOR LOGIN AND LOGOUT
+router.get('/members-only/:id', (req,res) => {
     res.render('index', {user: res.locals.currentUser})
 })
 
@@ -27,7 +31,7 @@ router.get('/logout', (req,res,next) => {
 
 //FOR SIGN UP
 router.get('/sign-up', (req,res) => {
-    console.log('sign-up GET')
+    console.log('sign up GET')
     res.render('sign-up-form');
 })
 
@@ -76,7 +80,6 @@ router.post('/sign-up', [
                 await user.save();
             }
             })
-            res.redirect('/');
         }
     })
 ])

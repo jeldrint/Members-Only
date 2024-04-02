@@ -64,9 +64,13 @@ app.use(express.json());
 
 app.post('/login',
     passport.authenticate('local',{
-        successRedirect: '/login',
         failureRedirect: '/',
-    })
+    }), (req,res) => {
+        const user = new User({
+            _id: req.user._id
+        });
+        res.redirect(user.url)
+    }
 )
 
 //saving the current user data
