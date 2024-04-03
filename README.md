@@ -76,3 +76,4 @@ Mar 31 - Apr
     Apr 3
     * 
         - write the messages in the message board
+            - now using forEach to upload sample messages ☑️

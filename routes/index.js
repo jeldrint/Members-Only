@@ -3,8 +3,9 @@ const router = express.Router();
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler');
 const {body, validationResult} = require('express-validator')
-const User = require('../models/user')
 
+const User = require('../models/user')
+const Messages = require('../models/messages')
 
 //ENV FILE
 require('dotenv').config()
@@ -18,9 +19,16 @@ router.get('/members-only', (req,res) => {
 })
 
 //FOR LOGIN AND LOGOUT
-router.get('/members-only/:id', (req,res) => {
-    res.render('index', {user: res.locals.currentUser})
-})
+router.get('/members-only/:id', asyncHandler (async (req,res) => {
+    const messages = await Messages.find().exec();
+    const msgCount = await Messages.countDocuments({}).exec();
+
+    res.render('index', {
+        user: res.locals.currentUser,
+        messages: messages,
+        msgCount: msgCount
+    })
+}))
 
 router.get('/logout', (req,res,next) => {
     req.logOut((err) => {
