@@ -1,3 +1,5 @@
+npm install express express-session mongoose passport passport-local ejs nodemon dotenv
+
 Feb 2
 * Currently working on writing the first database user data
 * Can write data in the database
@@ -65,3 +67,7 @@ Mar 31 - Apr
     * 
         - messages page now functioning, writing in the db ☑️
         - route fixing☑️
+
+    Apr 3
+    * 
+        - write the messages in the message board
