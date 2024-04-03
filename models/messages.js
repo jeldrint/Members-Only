@@ -6,6 +6,7 @@ const MessageSchema = new Schema({
     timestamp: {type: Date, required: true},
     message: {type: String, required: true, maxLength: 1000},
     userId: ({type: Schema.Types.ObjectId, ref: 'Users'}),
+    user_name: {type: String, required: true, maxLength: 50}
 })
 
 module.exports = mongoose.model('Messages', MessageSchema);

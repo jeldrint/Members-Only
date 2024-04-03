@@ -18,15 +18,20 @@
             <hr /><br />
     
             <!-- MESSAGE BOARD -->
-            <div style="border: solid 1px black">
-                <ul>
-                    <% messages.forEach(message => { %>
-                        <li><%=message.title%></li>
-                    <% }); %>
-                </ul>
+            <div style="border: solid 1px black; padding-right: 50px;">
+                    <ul style="list-style-type: none; display: flex; flex-direction: column;">
+                        <% messages.forEach(message => { %>
+                            <section style="margin:1px; border: solid 1px black;padding: 2px 4px;">
+                                <li>Message from: <span style="font-weight: bold;color: blue;"><%=message.user_name%>(Administrator)</span> (<%= message.userId %>)</li>
+                                <hr />
+                                <li style="font-weight: bold;">Title: <%=message.title%></li>
+                                <li><%=message.message%></li>                                
+                            </section>
+                        <% }); %>
+                    </ul>    
             </div>
     
-            <div style="position:fixed; bottom: 30%;">
+            <div>
                 <% if(user.membership_status === 'Administrator') { %>
                     <!-- HERE IS THE PAGE OF THE ADMINISTRATOR-->
                     <h2> Welcome, Admin!</h2>
