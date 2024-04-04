@@ -21,13 +21,16 @@
             <div style="padding-right: 50px;">
                     <ul style="list-style-type: none; display: flex; flex-direction: column;">
                         <% messages.forEach(message => { %>
-                            <% let color = (message.user_membership_status === 'Administrator') ? "red" :(message.user_membership_status === 'Elite') ? "navy" : 'black' %>
+                            <% let color = (user.membership_status === 'Standard') ? 'black' :(message.user_membership_status === 'Administrator') ? "red" :(message.user_membership_status === 'Elite') ? "navy" : 'black' %>
+                            <% let username = (user.membership_status === 'Standard') ? "username" : message.user_name %>
+                            <% let timestamp = (user.membership_status === 'Standard') ? "mm/dd/yyyy" : message.timestamp %>
+                            <% let membership_status = (user.membership_status === 'Standard') ? "member" : message.user_membership_status %>
                             <section style="margin:5px; border: solid 1px black;padding: 2px 4px;">
                                 <div style="padding-top: 3px;">
                                     <li>Message from: 
-                                        <span style="font-weight:bold; color:<%=color%>"><%=message.user_name%> (<%=message.user_membership_status%>)</span>
+                                        <span style="font-weight:bold; color:<%=color%>"><%=username%> (<%=membership_status%>)</span>
                                     </li>
-                                    <li>Date/Time of Writing: <%= message.timestamp %></li>    
+                                    <li>Date/Time of Writing: <%=timestamp%> </li>    
                                 </div>
                                 <hr />
                                 <div style="padding-bottom: 5px;">
