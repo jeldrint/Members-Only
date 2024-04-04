@@ -35,6 +35,37 @@ router.get('/logout', (req,res,next) => {
     res.redirect('/');
 })
 
+// FOR ELITE MEMBERS
+router.post('/members-only/:id/elite-member',[
+    body('passcode').custom(value => value === process.env.PASSCODE || value === process.env.ADMIN)
+        .withMessage('passcode is wrong. try again'),
+
+    asyncHandler(async(req, res, next) => {
+        const err = validationResult(req);        
+
+        console.log('elite POST')
+        if (!err.isEmpty()){
+            res.render('elite', {
+                err: err.array(),
+            })
+        }else{
+            let user = '';
+            if(req.body.passcode === process.env.ADMIN){
+                user = await User.updateOne({_id: res.locals.currentUser._id}, {$set:{membership_status: 'Administrator'}});
+            }
+            if(req.body.passcode === process.env.PASSCODE){
+                user = await User.updateOne({_id: res.locals.currentUser._id}, {$set:{membership_status: 'Elite'}});
+            }
+
+            res.render('elite', {
+                err: 'No error',
+                user: user
+            })
+        } 
+    })
+])
+
+
 //FOR SIGN UP
 router.get('/sign-up', (req,res) => {
     console.log('sign up GET')
@@ -44,10 +75,11 @@ router.get('/sign-up', (req,res) => {
 router.post('/sign-up', [
     body("firstname")
         .trim().isLength({min: 1}).escape().withMessage("First name is empty.")
-        .isAlpha().withMessage("Name must be alphabet letters"),
+        .matches(/[a-zA-Z][a-zA-Z ]+/).withMessage("Name must be alphabet letters")
+        .escape(),
     body("lastname")
         .trim().isLength({min: 1}).withMessage("First name is empty.")
-        .isAlpha().withMessage("Name must be alphabet letters")
+        .matches(/[a-zA-Z][a-zA-Z ]+/).withMessage("Name must be alphabet letters")
         .escape(),
     body("username")
         .trim().isLength({min: 1}).withMessage("user name cannot be empty.")
@@ -84,38 +116,10 @@ router.post('/sign-up', [
             }else{
                 user.password = hashedPW;
                 await user.save();
+                res.redirect('/')
             }
             })
         }
-    })
-])
-
-// FOR ELITE MEMBERS
-router.post('/elite-member',[
-    body('passcode').custom(value => value === process.env.PASSCODE || value === process.env.ADMIN)
-        .withMessage('passcode is wrong. try again'),
-    asyncHandler(async(req, res, next) => {
-        const err = validationResult(req);        
-        
-        console.log('elite POST')
-        if (!err.isEmpty()){
-            res.render('elite', {
-                err: err.array(),
-            })
-        }else{
-            let user = '';
-            if(req.body.passcode === process.env.ADMIN){
-                user = await User.updateOne({_id: res.locals.currentUser._id}, {$set:{membership_status: 'Administrator'}});
-            }
-            if(req.body.passcode === process.env.PASSCODE){
-                user = await User.updateOne({_id: res.locals.currentUser._id}, {$set:{membership_status: 'Elite'}});
-            }
-
-            res.render('elite', {
-                err: 'No error',
-                user: user
-            })
-        } 
     })
 ])
 

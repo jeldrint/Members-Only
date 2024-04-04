@@ -49,7 +49,7 @@
                     <h2> Welcome, Elite Member!</h2>
     
                 <%}else {%>
-                    <form action="/elite-member" method="POST">
+                    <form action="/members-only/:id/elite-member" method="POST">
                         <label for="passcode">Already part of the Club? Enter the Passcode here: </label>
                         <input name="passcode" placeholder="passcode..." type="password" />
                         <button>Enter</button>

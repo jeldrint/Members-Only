@@ -77,3 +77,7 @@ Mar 31 - Apr
     * 
         - write the messages in the message board
             - now using forEach to upload sample messages ☑️
+    
+    Apr 4
+    * 
+        - Messages are now readable in the homepage ☑️

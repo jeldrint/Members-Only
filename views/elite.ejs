@@ -10,11 +10,11 @@
         <h1>Welcome to the Club!</h1>
         <h2><%=user.membership_status%></h2>
         <br />
-        <a href="/">Go back</a>
+        <a href="/members-only/:id/">Go back</a>
     <% } else {%>
         <p> Incorrect Passcode!</p>
         <br />
-        <a href="/">Go back</a>
+        <a href="/members-only/:id/">Go back</a>
     <% } %>
 </body>
 </html>
