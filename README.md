@@ -81,3 +81,5 @@ Mar 31 - Apr
     Apr 4
     * 
         - Messages are now readable in the homepage ☑️
+        - program is functioning without errors (70%)☑️
+        - messages for standard and elite membership now ok (80%) ☑️
