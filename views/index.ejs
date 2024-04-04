@@ -27,9 +27,14 @@
                             <% let membership_status = (user.membership_status === 'Standard') ? "member" : message.user_membership_status %>
                             <section style="margin:5px; border: solid 1px black;padding: 2px 4px;">
                                 <div style="padding-top: 3px;">
-                                    <li>Message from: 
-                                        <span style="font-weight:bold; color:<%=color%>"><%=username%> (<%=membership_status%>)</span>
-                                    </li>
+                                    <div style="display: flex; column-gap: 10px;">
+                                        <li>Message from: 
+                                            <span style="font-weight:bold; color:<%=color%>"><%=username%> (<%=membership_status%>)</span>
+                                        </li>
+                                        <form action="" method="GET">
+                                            <button style="cursor: pointer;">DELETE</button>
+                                        </form>
+                                    </div>
                                     <li>Date/Time of Writing: <%=timestamp%> </li>    
                                 </div>
                                 <hr />
