@@ -1,4 +1,4 @@
-npm install express express-session mongoose passport passport-local ejs nodemon dotenv
+npm install express express-session mongoose passport passport-local ejs nodemon dotenv luxon
 
 Feb 2
 * Currently working on writing the first database user data

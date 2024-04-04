@@ -16,6 +16,7 @@ router.post('/members-only/:id/message', asyncHandler (async(req,res)=>{
         timestamp: Date.now(),
         message: req.body.message,
         user_name: res.locals.currentUser.user_name,
+        user_membership_status: res.locals.currentUser.membership_status,
         userId: res.locals.currentUser._id
     })        
     await msg.save();
