@@ -31,7 +31,8 @@
                                         <li>Message from: 
                                             <span style="font-weight:bold; color:<%=color%>"><%=username%> (<%=membership_status%>)</span>
                                         </li>
-                                        <form action="" method="GET">
+                                        <% let isVisible = (user.membership_status === 'Administrator') ? "visible" : "hidden" %>
+                                        <form action="/members-only/:id/delete-message/<%= message.id %>" method="GET" style="visibility:<%=isVisible%>;">
                                             <button style="cursor: pointer;">DELETE</button>
                                         </form>
                                     </div>

@@ -57,9 +57,9 @@ Mar 30 - Mar 31
         - bug #3: i forgot the 'await' keyword during the findById. **smh**
     - i used mongoDB's updateOne, doesnt need to .save() the file. it automatically changes.
 
-Mar 31 - Apr
+Mar 31 - Apr 5
 - 
-* Now do the messages
+* Now do the messages ☑️
     - standard membership can write messages, but cannot view who said who
     - elite membership can write messages, and can see the author and date of the message
     - Admins can see everything and has the ability to delete messages
@@ -83,3 +83,8 @@ Mar 31 - Apr
         - Messages are now readable in the homepage ☑️
         - program is functioning without errors (70%)☑️
         - messages for standard and elite membership now ok (80%) ☑️
+
+    Apr 5
+    * 
+        - Admin can now delete messages
+        - all messages and membership status in full effect (90%) ☑️
